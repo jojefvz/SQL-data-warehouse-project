@@ -4,7 +4,7 @@ Create Schemas
 =============================================================
 Script Purpose:
     This script creates three schemas 
-    within the database: 'bronze', 'silver', and 'gold'.
+    within the 'Datawarehouse' database : 'bronze', 'silver', and 'gold'.
 */
 
 -- Create Schemas
