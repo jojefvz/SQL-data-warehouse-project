@@ -22,7 +22,7 @@
 */
 
 
--- bronze.crm_cust_info table --
+-- silver.crm_cust_info table --
 -- finding IDs with duplicates or null IDs -- 
 SELECT 
 COUNT(*)
@@ -60,7 +60,7 @@ WHERE cst_firstname != TRIM(BOTH ' ' FROM cst_firstname);
 
 -- ---------------------------- --
 
--- bronze.crm_sales_details --
+-- silver.crm_sales_details --
 -- ALL DATA CHECKS --
 
 -- FIRST COLUMN --
@@ -131,9 +131,9 @@ FROM silver.crm_sales_details
 WHERE sls_price IS NULL
 OR sls_price <= 0;
 
--- ------------ END OF CHECKS ON bronze.crm_sales_details ------------ --
+-- ------------ END OF CHECKS ON silver.crm_sales_details ------------ --
 
--- bronze.erp_cust_az12 --
+-- silver.erp_cust_az12 --
 -- checks for cid column --
 
 SELECT
@@ -158,9 +158,9 @@ SELECT DISTINCT
 gen
 FROM silver.erp_cust_az12;
 
--- ------------ END OF CHECKS ON bronze.erp_cust_az12 ------------ --
+-- ------------ END OF CHECKS ON silver.erp_cust_az12 ------------ --
 
--- bronze.erp_loc_a101 -- 
+-- silver.erp_loc_a101 -- 
 -- checks on cid column --
 SELECT
 *
@@ -175,53 +175,54 @@ WHERE cid LIKE '%-%';
 
 SELECT
 *
-FROM bronze.erp_loc_a101
+FROM silver.erp_loc_a101
 WHERE REPLACE(cid, '-', '') NOT IN (SELECT cust_key FROM silver.crm_cust_info);
 
 -- checks on cntry column --
 SELECT
 *
-FROM bronze.erp_loc_a101
+FROM silver.erp_loc_a101
 WHERE cntry IS NULL;
 
 SELECT
 *
-FROM bronze.erp_loc_a101
+FROM silver.erp_loc_a101
 WHERE cntry != TRIM(BOTH ' ' FROM cntry);
 
 SELECT DISTINCT
 cntry
-FROM bronze.erp_loc_a101;
+FROM silver.erp_loc_a101;
 
--- ------------ END OF CHECKS ON bronze.erp_loc_a101 ------------ --
+-- ------------ END OF CHECKS ON silver.erp_loc_a101 ------------ --
 
--- bronze.erp_px_cat_g1v2 --
+-- checks on table silver.erp_px_cat_g1v2 --
+
 -- checks on id column -- 
 -- nothing to check --
 
 -- checks on cat column --
 SELECT DISTINCT
 cat
-FROM bronze.erp_px_cat_g1v2;
+FROM silver.erp_px_cat_g1v2;
 
 -- checks on subcat column --
 SELECT DISTINCT
 subcat
-FROM bronze.erp_px_cat_g1v2;
+FROM silver.erp_px_cat_g1v2;
 
 SELECT
 *
-FROM bronze.erp_px_cat_g1v2
+FROM silver.erp_px_cat_g1v2
 WHERE subcat != TRIM(BOTH ' ' FROM subcat);
 
 -- checks on maintenance column --
 SELECT DISTINCT
 maintenance
-FROM bronze.erp_px_cat_g1v2;
+FROM silver.erp_px_cat_g1v2;
 
 SELECT
 *
-FROM bronze.erp_px_cat_g1v2
+FROM silver.erp_px_cat_g1v2
 WHERE maintenance != TRIM(BOTH ' ' FROM maintenance);
 
-INSERT INTO silver.erp_px_cat_g1v2 --
+-------- END of checks on silver.erp_px_cat_g1v2 --------
