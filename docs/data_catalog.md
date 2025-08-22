@@ -9,4 +9,6 @@ The gold layer is the business level data representation, structured to support 
 - **Purpose**: Stores customer details enriched with geographical and demographic data
 - **Columns**:
 
-| Columns | Data Type | Description |
+| Columns      | Data Type     | Description         |
+------------------------------------------------------
+|              |               |                     |
