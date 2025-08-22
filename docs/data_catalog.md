@@ -19,7 +19,7 @@ The gold layer is the business level data representation, structured to support 
 | country         | character varying(50) | The country of residence for the customer (e.g. Germany).                                  |
 | marital_status  | character varying(50) | The marital status of the customer (e.g. 'Single', 'Married').                             |
 | gender          | character varying(50) | The gender of the customer (e.g. 'Male', 'Female', 'n/a').                                 |
-| birthdate       | date                  | The birth date of the customer.                                                            |
-| create_date     | date                  | The date and time the customer was recording into the system.                              |
+| birthdate       | date                  | The birth date of the customer formatted as YYYY-MM-DD (e.g. 1981-08-21).                  |
+| create_date     | date                  | The date the customer was recording into the system.                                       |
 
 ---
