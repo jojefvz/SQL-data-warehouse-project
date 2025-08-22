@@ -6,3 +6,6 @@ The gold layer is the business level data representation, structured to support 
 ---
 
 ### 1. **gold.dim_customers**
+- **Purpose**: Stores customer details enriched with geographical and demographic data
+- **Columns**:
+|Columns| |
